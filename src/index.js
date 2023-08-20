@@ -23,19 +23,6 @@ function printError(request, USD) {
   document.querySelector('#showResponse').innerText = `There was an error accessing the exchange data for ${USD}:  ${request.status} ${request.statusText}`;
 }
 
-// function printElements(apiResponse, USD) {
-//   console.log(apiResponse)
-// grab the user selected currency to convert to here;
-// use the user selected currency to determine which conversion_rate to use.
-// const userSelectedCurrency = document.querySelector('#conversionSelection').value;
-// const convertedAmount = USD * apiResponse.conversion_rates[userSelectedCurrency] 
-// conversionSelection = table of dif currency
-
-
-// const convertedAmount = USD * apiResponse.conversion_rates[conversionSelection]; 
-// document.querySelector('#showResponse').innerText = `The conversion for  ${USD} USD is ${convertedAmount}`;
-// let conversionSelection = document.querySelector("currency").value
-// let selected = document.querySelector(".currency select").value;
 function printElements(apiResponse, USD) {
   const conversionSelection = document.querySelector('#conversionSelection').value;
   document.querySelector('#dollars').addEventListener('change', function() {
@@ -44,7 +31,7 @@ function printElements(apiResponse, USD) {
   });
   const rate = apiResponse.conversion_rates[conversionSelection];
   if (rate) {
-    const converted = (USD * rate).toFixed(2);
+    const converted = (USD * rate);
     document.querySelector('#showResponse').innerText = `${USD} USD = ${converted} ${conversionSelection}`;
   } else {
     document.querySelector('#showResponse').innerText = `Invalid currency code: ${conversionSelection}`;
@@ -59,9 +46,6 @@ function printElements(apiResponse, USD) {
 function handleFormSubmission(event) {
   event.preventDefault();
   const USD = document.querySelector('#dollars').value;
-  // document.querySelector('#dollars').value = null;
-  
-  conversion(USD);
 }
 
 window.addEventListener("load", function() {
