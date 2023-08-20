@@ -10,8 +10,17 @@
         <h1>Traveling to another country?</h1>
         <p>Here you may input your currency amount in USD and we will do the conversions for you!</p>
         <form>
-          <label for="dollars">Enter an amount in USD:</label>
+          <label for="countryCode">Choose a currency:</label>
+          <label for="dollars">Enter an amount in USD and select currency type:</label>
           <input id="dollars" type="text" name="dollars">
+
+          <select name="currency" id="conversionSelection">
+            <option value="AUD">AUD</option>
+            <option value="BGN">BGN</option>
+            <option value="CAD">CAD</option>
+            <option value="CHF">CHF</option>
+            <option value="CNY">CNY</option>
+          </select>
           <button type="submit" class="btn-success" id="dollars">CLICK!!</button>
         </form>
         <p id="showResponse"></p>
